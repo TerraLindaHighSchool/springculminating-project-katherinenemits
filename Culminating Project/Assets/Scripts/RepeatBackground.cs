@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RepeatBackground : MonoBehaviour
 {
+    public GameObject ground;
     private Vector3 startPos;
     private float repeatWidth;
     // Start is called before the first frame update
@@ -20,5 +21,6 @@ public class RepeatBackground : MonoBehaviour
         {
             transform.position = startPos;
         }
+        
     }
 }
