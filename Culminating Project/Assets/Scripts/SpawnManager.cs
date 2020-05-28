@@ -17,6 +17,7 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
+
         InvokeRepeating("SpawnObstacle", startDelay, spawnInterval);
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }

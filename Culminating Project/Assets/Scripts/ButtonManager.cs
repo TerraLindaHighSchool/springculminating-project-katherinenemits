@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class ButtonManager : MonoBehaviour
 {
-    private int score;
-    public TextMeshProUGUI scoreText;
-    //public text scoreText;
+    
     // Start is called before the first frame update
     void Start()
     {
+        
         
     }
 
@@ -19,10 +20,10 @@ public class GameManager : MonoBehaviour
     {
         
     }
-
-    private void UpdateScore(int scoreToAdd)
+    public void RestartGame()
     {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-}
 
+    
+}

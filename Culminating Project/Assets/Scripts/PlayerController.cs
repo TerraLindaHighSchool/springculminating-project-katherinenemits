@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -22,6 +24,9 @@ public class PlayerController : MonoBehaviour
 
     private int score;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI gameOverText;
+    public Button restartButton;
+    public TextMeshProUGUI titleText;
 
     // allows the player to jump
     void Start()
@@ -36,9 +41,12 @@ public class PlayerController : MonoBehaviour
         UpdateScore(0);
     }
 
+
+
     // only allows the player to jump once at a time
     void Update()
     {
+        titleText.gameObject.SetActive(false);
         if (Input.GetKeyDown(KeyCode.UpArrow) && isOnGround && !gameOver)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -75,30 +83,40 @@ public class PlayerController : MonoBehaviour
         {
             //end statement
             gameOver = true;
-            Debug.Log("Game Over!");
+            gameOverText.gameObject.SetActive(true);
+            
             //makes the player stop running
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
             explosionParticle.Play();
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
+            restartButton.gameObject.SetActive(true);
+            
         }
         else if (collision.gameObject.CompareTag("Cone"))
         {
             //end statement
             gameOver = true;
-            Debug.Log("Game Over!");
+            gameOverText.gameObject.SetActive(true);
+            
             //makes the player stop running
             playerAnim.SetBool("Death_b", true);
             playerAnim.SetInteger("DeathType_int", 1);
             explosionParticle.Play();
             dirtParticle.Stop();
             playerAudio.PlayOneShot(crashSound, 1.0f);
+            restartButton.gameObject.SetActive(true);
         }
 }
     private void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
+    }
+
+    public void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
