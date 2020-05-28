@@ -21,6 +21,7 @@ public class ButtonManager : MonoBehaviour
     {
         
     }
+    //Resets and restarts the game
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);

@@ -19,7 +19,7 @@ public class MoveLeft : MonoBehaviour
     {
         //gets the status of game over; if true then it stops the game
         if(playerControllerScript.gameOver == false)
-        transform.Translate(Vector3.left * Time.deltaTime * speed);
+            transform.Translate(Vector3.left * Time.deltaTime * speed);
         //destroys obstacles that go out of the game view
         if(transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))
         {

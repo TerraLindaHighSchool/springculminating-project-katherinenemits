@@ -17,7 +17,7 @@ public class SpawnManager : MonoBehaviour
 
     void Start()
     {
-
+        //spawns obstacles at time intervals
         InvokeRepeating("SpawnObstacle", startDelay, spawnInterval);
         playerControllerScript = GameObject.Find("Player").GetComponent<PlayerController>();
     }
@@ -33,6 +33,7 @@ public class SpawnManager : MonoBehaviour
         //makes sure if game is over to stop spawning obstacles
         if (playerControllerScript.gameOver == false)
         {
+            //obstacles spawned at each time interval
             Vector3 spawnPos = new Vector3(25, 0, Random.Range(-3, 3));
             Vector3 spawnPos2 = new Vector3(35, 0, Random.Range(-3, 3));
             Vector3 spawnPos3 = new Vector3(40, 0, Random.Range(-3, 3));

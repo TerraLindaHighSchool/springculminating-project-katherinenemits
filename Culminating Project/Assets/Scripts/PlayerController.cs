@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
         Physics.gravity *= gravityModifier;
         playerAudio = GetComponent<AudioSource>();
 
-        
+        //sets the score to 0 at begining of game; updates the score
         score = 0;
         UpdateScore(0);
     }
@@ -46,7 +46,9 @@ public class PlayerController : MonoBehaviour
     // only allows the player to jump once at a time
     void Update()
     {
+        //disables title text
         titleText.gameObject.SetActive(false);
+        //makes player jump and updates score
         if (Input.GetKeyDown(KeyCode.UpArrow) && isOnGround && !gameOver)
         {
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
@@ -57,6 +59,7 @@ public class PlayerController : MonoBehaviour
             UpdateScore(1);
 
         }
+        //makes the player move left and right within a range
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
 
@@ -108,15 +111,14 @@ public class PlayerController : MonoBehaviour
             playerAudio.PlayOneShot(crashSound, 1.0f);
             restartButton.gameObject.SetActive(true);
         }
-}
+    }  
+ 
+    //gets score to add and adds it to the score
     private void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
         scoreText.text = "Score: " + score;
     }
 
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
+    
 }
