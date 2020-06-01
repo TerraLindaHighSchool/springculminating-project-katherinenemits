@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &86766455
 RectTransform:
   m_ObjectHideFlags: 0
@@ -551,7 +551,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &342602599
 RectTransform:
   m_ObjectHideFlags: 0
@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 679190633}
   - component: {fileID: 679190632}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Restart Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1654,7 +1654,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1532682447
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1788,6 +1788,9 @@ MonoBehaviour:
   gameOverText: {fileID: 123817025}
   restartButton: {fileID: 679190632}
   titleText: {fileID: 922402272}
+  easyButton: {fileID: 1532682448}
+  mediumButton: {fileID: 86766456}
+  hardButton: {fileID: 342602600}
 --- !u!65 &1800226556
 BoxCollider:
   m_ObjectHideFlags: 0

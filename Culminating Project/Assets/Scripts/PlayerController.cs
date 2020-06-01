@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody playerRb;
@@ -27,6 +28,9 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI gameOverText;
     public Button restartButton;
     public TextMeshProUGUI titleText;
+    public Button easyButton;
+    public Button mediumButton;
+    public Button hardButton;
 
     // allows the player to jump
     void Start()
@@ -48,6 +52,9 @@ public class PlayerController : MonoBehaviour
     {
         //disables title text
         titleText.gameObject.SetActive(false);
+        easyButton.gameObject.SetActive(false);
+        mediumButton.gameObject.SetActive(false);
+        hardButton.gameObject.SetActive(false);
         //makes player jump and updates score
         if (Input.GetKeyDown(KeyCode.UpArrow) && isOnGround && !gameOver)
         {
